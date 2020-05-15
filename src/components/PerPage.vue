@@ -51,6 +51,7 @@ export default {
 
 <style lang="scss">
 .per-page {
+  user-select: none;
   margin-right: 15px;
   &__button p {
     margin-right: 10px;

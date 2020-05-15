@@ -61,6 +61,7 @@ export default {
 
 <style lang="scss">
 .columns-select {
+  user-select: none;
   &__button p {
     margin-right: 10px;
   }

@@ -123,6 +123,7 @@ th {
     border-radius   : 4px;
     text-align      : center;
     z-index         : 1;
+    user-select     : none;
 
     &__button {
         display        : flex;
