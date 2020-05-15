@@ -30,6 +30,7 @@ export default {
 .sorting-table {
   display: flex;
   align-items: center;
+  cursor: pointer;
   &__label {
     font-weight: 600;
     color: $gray-600;

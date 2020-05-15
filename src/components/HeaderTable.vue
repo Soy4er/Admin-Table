@@ -14,7 +14,10 @@
         :key="item.name"
         v-bind:class="{'table-header__item--active': item.order === true}"
         :style="{width: item.width+'px'}"
-      >{{item.label}}</th>
+      >
+        {{item.label}}
+        <font-awesome-icon icon="long-arrow-alt-up" v-if="item.order === true" />
+      </th>
     </tr>
   </thead>
 </template>
@@ -82,6 +85,11 @@ export default {
     }
     &--active {
       color: $primary;
+      display: flex;
+      align-items: center;
+      & svg {
+        margin-left: 5px;
+      }
     }
   }
 }

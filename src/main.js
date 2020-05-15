@@ -4,13 +4,13 @@ import Vue from 'vue'
 import store from './store'
 import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons'
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import vClickOutside from 'v-click-outside'
 import Notifications from 'vue-notification'
 
-library.add(faChevronDown, faTrashAlt)
+library.add(faChevronDown, faTrashAlt, faLongArrowAltUp)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

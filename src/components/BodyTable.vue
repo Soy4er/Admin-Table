@@ -78,15 +78,29 @@ export default {
       return this.$store.getters["allSelectedRows"];
     },
     products() {
-      const products = this.$store.getters["allProducts"],
-            perPage = this.$store.getters["perPage"],
+      let products = this.$store.getters["allProducts"];
+      const perPage = this.$store.getters["perPage"],
             activePerPage = perPage.find(({ active }) => active),
-            page = this.$store.getters["page"];
+            page = this.$store.getters["page"],
+            activeColumn =  this.$store.getters["allColumns"].find(({order}) => order === true);
 
-      return products.slice(
+      products = products.slice(
         activePerPage.name * (page - 1),
         activePerPage.name * page
       );
+      return products.sort(function (a, b) {
+        if (typeof a[activeColumn.name] === 'string') {
+          const nameA = a[activeColumn.name].toUpperCase(),
+            nameB = b[activeColumn.name].toUpperCase();
+          if (nameA < nameB)
+            return -1;
+          if (nameA > nameB)
+            return 1;
+          return 0;
+        } else {
+          return a[activeColumn.name] - b[activeColumn.name];
+        }
+      });
     },
     activeSelectedColumns() {
       return this.$store.getters["allColumns"].filter(({ visible }) => visible).length;
