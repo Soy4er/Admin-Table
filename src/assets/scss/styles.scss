@@ -1,0 +1,136 @@
+@import "_normalize.scss";
+@import "_variables.scss";
+
+@font-face {
+    font-family  : 'Source Sans Pro';
+    font-style   : normal;
+    font-weight  : 400;
+    font-display : swap;
+    src          : local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+.container {
+    width        : 100%;
+    padding-right: 15px;
+    padding-left : 15px;
+    margin-right : auto;
+    margin-left  : auto;
+}
+
+body {
+    font-size       : $font-size-md;
+    line-height     : $line-height-md;
+    font-family     : $font-family-base;
+    color           : $black;
+    background-color: $gray-100;
+    font-weight     : 500;
+}
+
+hr {
+    border          : none;
+    height          : 2px;
+    margin          : 20px 0;
+    background-color: $gray-300;
+}
+
+h1 {
+    font-size  : $font-size-lg;
+    line-height: $line-height-lg;
+    font-weight: 600;
+    margin     : 0;
+}
+
+p {
+    margin : 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+th {
+    font-weight: 500;
+}
+
+.item-checkbox {
+    width        : 14px;
+    height       : 14px;
+    display      : block;
+    border       : 1px solid $gray-400;
+    border-radius: 2px;
+    cursor       : pointer;
+    position     : relative;
+
+    &--active:before {
+        content   : '\2713\0020';
+        position  : absolute;
+        top       : -4px;
+        left      : 1px;
+        color     : $primary;
+        transition: all .2s;
+    }
+}
+
+.btn {
+    border       : 1px solid $gray-400;
+    border-radius: 2px;
+    padding      : 0 10px;
+    cursor       : pointer;
+    display      : flex;
+    align-items  : center;
+    user-select  : none;
+    height       : 32px;
+
+    &--arrow-left {
+        transform: rotate(90deg);
+    }
+
+    &--arrow-right {
+        transform: rotate(-90deg);
+    }
+
+    &--disabled {
+        opacity       : 0.3;
+        cursor        : default;
+        pointer-events: none;
+    }
+
+    &--primary {
+        background-color: $primary;
+        border-color    : $primary;
+        color           : $white;
+    }
+}
+
+.confirm-deletion {
+    position        : absolute;
+    top             : 30px;
+    left            : -100px;
+    background-color: $white;
+    color           : $black;
+    padding         : 15px;
+    width           : 250px;
+    box-shadow      : 0px 2px 8px rgba(0, 0, 0, 0.16);
+    border-radius   : 4px;
+    text-align      : center;
+    z-index         : 1;
+
+    &__button {
+        display        : flex;
+        margin-top     : 10px;
+        justify-content: center;
+
+        &-cancel {
+            margin-right: 15px;
+        }
+    }
+}
