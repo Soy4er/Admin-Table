@@ -61,8 +61,17 @@ export default {
       columns[id].visible = true;
     },
 
-    columnUnactive({ columns }, id) {
-      columns[id].visible = false;
+    columnUnactive({ columns }, idColumn) {
+      columns[idColumn].visible = false;
+
+      // Checking when deactivating one column and activating the other relative to the id, order, and visible parameters.
+      if (columns[idColumn].order) {
+        if (columns.find(({ id, order, visible }) => id !== idColumn && !order && visible))
+          columns.find(({ id, order, visible }) => id !== idColumn && !order && visible).order = true
+        else
+          columns[0].order = true
+        columns[idColumn].order = false;
+      }
     },
 
     createSelectedRows(state, selectedRows) {
